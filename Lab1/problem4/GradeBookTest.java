@@ -1,23 +1,15 @@
 import gradebook.Course;
 import gradebook.GradeBook;
 import students.Student;
-
 import java.util.Scanner;
-
 public class GradeBookTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        // Create one course
         Course course = new Course("CS101", "Object-oriented Programming and Design", 3);
-
-        // Create several students
         String[] names = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
         GradeBook gradeBook = new GradeBook(course);
-
         gradeBook.displayMessage();
         System.out.println("Please, input grades for students:");
-
         for (int i = 0; i < names.length; i++) {
             double grade = -1;
             while (grade < 0 || grade > 100) {
@@ -33,7 +25,6 @@ public class GradeBookTest {
             }
             gradeBook.addStudent(new Student(names[i], i + 1, grade));
         }
-
         gradeBook.displayGradeReport();
         scanner.close();
     }
